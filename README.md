@@ -1,3 +1,4 @@
-1.npm install
-2.php artisan migrate
-3.php artisan serve
+Create env
+npm install
+php artisan migrate
+php artisan serve
