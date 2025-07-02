@@ -11,4 +11,15 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (auth()->guard()->attempt($credentials)) {
+            return redirect()->intended('dashboard')->with('success', 'Login successful.');
+        }
+
+        return redirect()->back()->withErrors('error', 'Invalid email or password.');
+    }
 }
